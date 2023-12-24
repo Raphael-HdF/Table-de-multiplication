@@ -1,0 +1,6 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 21.9b0  # Change this to the version you want to use
+    hooks:
+      - id: black
+        language_version: python3.10
