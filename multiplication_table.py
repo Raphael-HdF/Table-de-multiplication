@@ -82,7 +82,7 @@ def ask_multiplication(table, multiple):
 def get_random_table_and_multiple(old_results: dict, tables: list = TABLES, multiples: list = MUTLIPLES):
     choose_old_results = random.randint(1, 3) == 1
     bad_old_results = {key: value for key, value in old_results.items() if value < 0}
-    if len(bad_old_results) > 5 and choose_old_results:
+    if len(bad_old_results) > 3 and choose_old_results:
         table, multiple = random.choice(list(bad_old_results.keys()))
     else:
         table = random.choice(tables)
@@ -102,8 +102,11 @@ def main():
         points = ask_multiplication(table, multiple)
         old_results.update_results(table, multiple, points)
         score += points
+        print(Fore.YELLOW + f"\nTon score est de {score} points sur {goal} !\n"
+                            f"Il faut encore {goal-score} points.")
 
     print(Fore.LIGHTGREEN_EX + Style.BRIGHT + f"\nTu as gagné !!! 🥳🥳🥳\n")
+
 
 
 if __name__ == "__main__":
